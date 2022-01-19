@@ -1,0 +1,11 @@
+{% extends "../weather_app/base.html" %}
+{% load static %}
+{% block link %}
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'weather/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <p>Hello world</p>
+    <p>{{ api_key }}</p>
+{% endblock %}
