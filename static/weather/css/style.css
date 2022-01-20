@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .weather-icon {
-        height: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     align-content: center;
@@ -174,4 +174,43 @@ h1, h2, h3, h4, h5, h6 {
 
 table tr td {
     padding: 10px;
+}
+
+table {
+    border-radius: 10px;
+
+}
+
+.table_col {
+    border-left: 2px solid rgba(210, 210, 210, 0.8);
+
+}
+
+.table_col_right {
+    border-right: 2px solid rgba(210, 210, 210, 0.8);
+
+}
+
+.table_row_1 {
+    border-top: 2px solid rgba(210, 210, 210, 0.8);
+
+}
+
+.table_row_2 {
+    border-bottom: 2px solid rgba(210, 210, 210, 0.8);
+}
+
+.head_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    font-size: 30px;
+    width: 100%;
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: 'ubuntu', sans-serif;
+    font-weight: 600;
+    color: white;
 }

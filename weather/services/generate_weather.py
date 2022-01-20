@@ -3,6 +3,7 @@ from time import localtime, time
 import requests
 import datetime
 from calendar import monthrange
+from django.shortcuts import redirect
 
 today_day = localtime(time()).tm_mday
 today_month = localtime(time()).tm_mon
@@ -49,3 +50,8 @@ def get_weather_by_city(location):
     days = [day1, day2, day3, day4, day5, day6]
 
     return days, storage
+
+
+def start_page_or_redirect(request):
+    if request.session.get("city"):
+        return redirect("city_weather", request.session.get("city"))

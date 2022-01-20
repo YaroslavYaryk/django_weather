@@ -49,6 +49,13 @@ def get_item(dictionary, *args):
     else:
         return dictionary[args[0]]
 
+@register.simple_tag()
+def get_item_temperature(dictionary, *args):
+    return round(get_item(dictionary, *args) - 273)
+
+@register.simple_tag()
+def get_item_divide_1000(dictionary, *args):
+    return round(get_item(dictionary, *args)/1000,3)
 
 @register.simple_tag()
 def get_max_temp(day):

@@ -11,36 +11,45 @@
 
 {% block content1 %}
     <h1 style="display:flex;justify-content: center; font-size: 20px; margin-bottom: 30px;">Here is weather forecast
-        for {{ title|capfirst }} for {% get_item weather 0 "date_time" "day" %} {% get_item weather 0 "date_time" "month" %}</h1>
+        for {{ title|capfirst }}
+        for {% get_item weather 0 "date_time" "day" %} {% get_item weather 0 "date_time" "month" %}</h1>
 {% endblock %}
 
 {% block content %}
     <div class="row"
-         style=" width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 40px; margin-top: 10px;">
+         style=" width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 40px; margin-top: 10px;">
         {% for elem in weather %}
             <div class="card_col" style=" grid-template-columns: repeat(2, 1fr)">
-                <div class="card mb-3"  style="height: auto; min-width: 440px; ">
+                <div class="card mb-3" style="height: auto; width: 102%; ">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="{% static elem|get_image_path_spec:elem.ico %}" class="img-fluid rounded-start"
-                                 alt="...">
+                                 alt="..." width="175px" height="175px" style="margin-left: -5%;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-center" >{% get_item elem "date_time" "hour" %}:00</h5>
-                                <div class="body_table">
-                                    <table>
-                                        <tr style="padding: 10px">
-                                            <td>dsd</td>
+                                <h5 class="card-title d-flex justify-content-center">{% get_item elem "date_time" "hour" %}:00</h5>
+                                <div class="body_table" style="margin-left: -20%;">
+                                    <table style="color: #0c4128;">
+                                        <tr class="table_row_1">
+                                            <td class="table_col">temp</td>
+                                            <td class="table_col">feels like</td>
+                                            <td class="table_col">pressure</td>
+                                            <td class="table_col">humidity</td>
+                                            <td class="table_col">sea level, km</td>
+                                            <td class="table_col">wind speed, mps</td>
+                                            <td class="table_col table_col_right">wind deg</td>
+                                        </tr>
+                                        <tr class="table_row_2">
+                                            <td class="table_col">{% get_item_temperature elem "main" "temp" %}</td>
+                                            <td class="table_col">{% get_item_temperature elem "main" "feels_like" %}</td>
+                                            <td class="table_col">{% get_item_divide_1000 elem "main" "pressure" %}</td>
+                                            <td class="table_col">{% get_item elem "main" "humidity" %}%</td>
+                                            <td class="table_col">{% get_item_divide_1000 elem "main" "sea_level" %}</td>
+                                            <td class="table_col">{% get_item elem "wind" "speed" %}</td>
+                                            <td class="table_col table_col_right">{% get_item elem "wind" "deg" %}</td>
+                                        </tr>
 
-                                            <td>dsd</td>
-                                        </tr>
-                                        <tr>
-                                            <td>dsd</td>
-                                        </tr>
-                                        <tr>
-                                            <td>dsd</td>
-                                        </tr>
                                     </table>
                                 </div>
                             </div>
