@@ -3,8 +3,9 @@ from django.views.generic.base import View
 from django.shortcuts import redirect, render
 from .services.generate_weather import get_weather_by_city, start_page_or_redirect
 from django.contrib import  messages
-
 # Create your views here.
+
+
 
 class Home(View):
     template_name = "weather/home_page.html"
